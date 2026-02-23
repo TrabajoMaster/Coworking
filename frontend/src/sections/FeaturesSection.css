@@ -1,0 +1,114 @@
+.features {
+    padding: var(--space-5xl) 0;
+    background: var(--color-bg-warm);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.feature-card {
+    position: relative;
+    padding: var(--space-xl);
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    transition: var(--transition-base);
+    cursor: default;
+}
+
+.feature-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-border-strong);
+    transform: translateY(-2px);
+}
+
+.feature-large {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-2xl) var(--space-xl);
+    background: linear-gradient(135deg, #1d1d1f 0%, #2d2d30 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.feature-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.feature-large h3 {
+    font-size: 22px;
+}
+
+.feature-large p {
+    color: rgba(255,255,255,0.7);
+    max-width: 500px;
+}
+
+.feature-icon-wrapper {
+    margin-bottom: var(--space-md);
+}
+
+.feature-large .feature-icon-wrapper {
+    margin-bottom: 0;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: var(--color-bg-warm);
+    border-radius: var(--radius-md);
+}
+
+.feature-large .feature-icon {
+    background: rgba(255,255,255,0.12);
+    font-size: 28px;
+    width: 56px;
+    height: 56px;
+}
+
+.feature-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.feature-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-full);
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-large {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}

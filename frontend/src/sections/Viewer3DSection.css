@@ -1,0 +1,157 @@
+.room3d-section {
+    padding: var(--space-5xl) 0;
+    background: var(--color-bg-warm);
+}
+
+.viewer-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--space-md);
+}
+
+.viewer-container {
+    position: relative;
+    background: var(--color-surface);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+}
+
+.viewer-canvas {
+    width: 100%;
+    height: 600px;
+    cursor: grab;
+}
+
+.viewer-canvas:active {
+    cursor: grabbing;
+}
+
+.viewer-loading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    font-size: 14px;
+    background: var(--color-bg-warm);
+}
+
+/* Viewer Controls */
+.viewer-controls {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    display: flex;
+    gap: 4px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-md);
+    padding: 4px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.viewer-control-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    background: none;
+    border: none;
+}
+
+.viewer-control-btn:hover {
+    background: var(--color-bg-hover);
+    color: var(--color-text);
+}
+
+.viewer-control-btn.active {
+    background: var(--color-text);
+    color: white;
+}
+
+.control-divider {
+    width: 1px;
+    background: var(--color-border);
+    margin: 4px 2px;
+}
+
+/* Legend */
+.viewer-legend {
+    position: absolute;
+    bottom: var(--space-md);
+    left: var(--space-md);
+    display: flex;
+    gap: var(--space-md);
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-md);
+    padding: 10px 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.legend-dot.green { background: var(--color-green); }
+.legend-dot.red { background: var(--color-red); }
+.legend-dot.yellow { background: var(--color-yellow); }
+
+/* Instructions */
+.viewer-instructions {
+    position: absolute;
+    bottom: var(--space-md);
+    right: var(--space-md);
+    display: flex;
+    gap: var(--space-md);
+    font-size: 11px;
+    color: var(--color-text-muted);
+}
+
+.viewer-instructions span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+@media (max-width: 1024px) {
+    .viewer-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .viewer-canvas {
+        height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .viewer-instructions {
+        display: none;
+    }
+}

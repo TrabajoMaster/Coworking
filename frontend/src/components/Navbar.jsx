@@ -1,0 +1,98 @@
+import { useState, useEffect } from 'react'
+import './Navbar.css'
+
+export default function Navbar({ onLoginClick, onRegisterClick }) {
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('hero')
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+
+      const sections = document.querySelectorAll('section[id]')
+      let current = ''
+      sections.forEach(section => {
+        const top = section.offsetTop - 100
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id')
+        }
+      })
+      if (current) setActiveSection(current)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id)
+    if (el) {
+      const offset = 80
+      const position = el.offsetTop - offset
+      window.scrollTo({ top: position, behavior: 'smooth' })
+    }
+    setMobileOpen(false)
+  }
+
+  const links = [
+    { id: 'hero', label: 'Inicio' },
+    { id: 'features', label: 'Características' },
+    { id: 'spaces', label: 'Espacios' },
+    { id: 'room3d', label: 'Vista 3D' },
+    { id: 'pricing', label: 'Planes' },
+    { id: 'contact', label: 'Contacto' },
+  ]
+
+  return (
+    <>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <div className="nav-container">
+          <button className="nav-logo" onClick={() => scrollTo('hero')}>
+            <span className="logo-icon">◆</span>
+            <span>WorkHub <span className="logo-3d">3D</span></span>
+          </button>
+
+          <ul className="nav-links">
+            {links.map(link => (
+              <li key={link.id}>
+                <button
+                  className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
+                  onClick={() => scrollTo(link.id)}
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className="nav-actions">
+            <button className="btn-text" onClick={onLoginClick}>Iniciar sesión</button>
+            <button className="btn-primary-sm" onClick={onRegisterClick}>Comenzar gratis</button>
+          </div>
+
+          <button
+            className={`hamburger ${mobileOpen ? 'active' : ''}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            <span /><span /><span />
+          </button>
+        </div>
+      </nav>
+
+      <div className={`mobile-menu ${mobileOpen ? 'active' : ''}`}>
+        <ul>
+          {links.map(link => (
+            <li key={link.id}>
+              <button onClick={() => scrollTo(link.id)}>{link.label}</button>
+            </li>
+          ))}
+          <li>
+            <button className="btn-primary-sm" onClick={() => { setMobileOpen(false); onLoginClick() }}>
+              Iniciar sesión
+            </button>
+          </li>
+        </ul>
+      </div>
+    </>
+  )
+}

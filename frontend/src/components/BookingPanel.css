@@ -1,0 +1,206 @@
+.viewer-panel {
+    background: var(--color-surface);
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg) var(--space-lg) var(--space-md);
+}
+
+.panel-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.panel-close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: var(--transition-fast);
+    font-size: 14px;
+    background: none;
+    border: none;
+}
+
+.panel-close:hover {
+    background: var(--color-bg-hover);
+    color: var(--color-text);
+}
+
+.panel-empty {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-2xl);
+    color: var(--color-text-muted);
+}
+
+.panel-empty-icon {
+    font-size: 48px;
+    margin-bottom: var(--space-md);
+    color: var(--color-border-strong);
+}
+
+.panel-empty p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.panel-content {
+    padding: 0 var(--space-lg) var(--space-lg);
+    overflow-y: auto;
+    flex: 1;
+}
+
+.panel-room-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.status-dot.green { background: var(--color-green); }
+.status-dot.red { background: var(--color-red); }
+
+.panel-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.panel-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+}
+
+.info-icon {
+    font-size: 18px;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.info-label {
+    display: block;
+    font-size: 11px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.info-value {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.panel-amenities {
+    margin-bottom: var(--space-lg);
+}
+
+.amenities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: var(--space-sm);
+}
+
+.amenity-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background: var(--color-bg);
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.panel-booking {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.booking-field {
+    margin-top: var(--space-sm);
+}
+
+.booking-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+}
+
+.booking-input {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    transition: var(--transition-fast);
+    color: var(--color-text);
+    font-family: var(--font-family);
+}
+
+.booking-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+    outline: none;
+}
+
+.booking-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+}
+
+.booking-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+.booking-total {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text);
+}
